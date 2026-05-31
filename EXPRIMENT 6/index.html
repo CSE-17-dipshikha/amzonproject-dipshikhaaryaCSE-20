@@ -1,0 +1,50 @@
+!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 id="heading">
+            Welcome
+        </h1>
+
+        <input type="text"
+               id="message"
+               placeholder="Enter Message">
+
+        <p id="para">
+            This is a paragraph.
+        </p>
+
+        <button onclick="changeText()">
+            Change Heading
+        </button>
+
+        <button onclick="changeColor()">
+            Change Background
+        </button>
+
+        <button onclick="changeFont()">
+            Change Font Size
+        </button>
+
+        <button onclick="togglePara()">
+            Show/Hide
+        </button>
+
+        <button onclick="resetPage()">
+            Reset
+        </button>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

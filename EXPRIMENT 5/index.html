@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Management</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+h2{
+    color: #333;
+}
+
+input{
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button{
+    padding: 10px 15px;
+    margin: 5px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover{
+    background: darkblue;
+}
+
+#result{
+    margin-top: 20px;
+    text-align: left;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Employee Management System</h2>
+
+    <input type="text" placeholder="Employee Name">
+
+    <input type="text" placeholder="Employee ID">
+
+    <input type="number" placeholder="Salary">
+
+    <input type="text" placeholder="Department">
+
+    <br>
+
+    <button>Add Employee</button>
+
+    <button>Display All</button>
+
+    <button>Salary > 50000</button>
+
+    <button>Total Salary</button>
+
+    <button>Average Salary</button>
+
+    <button>Count Department</button>
+
+    <div id="result"></div>
+
+</div>
+
+</body>
+</html>

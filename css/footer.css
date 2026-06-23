@@ -1,0 +1,53 @@
+/* ============================================================
+   footer.css
+   ============================================================ */
+
+.footer {
+  margin-top: var(--sp-2xl);
+  background: var(--clr-dark-2);
+  color: #DDD;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--sp-xl);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: var(--sp-xl) var(--sp-lg);
+}
+
+.footer-col h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: var(--sp-md);
+}
+
+.footer-col ul { display: flex; flex-direction: column; gap: var(--sp-sm); }
+.footer-col a {
+  font-size: 0.82rem;
+  color: #DDD;
+  transition: color var(--tr-fast);
+}
+.footer-col a:hover { color: var(--clr-white); text-decoration: underline; }
+
+.footer-bottom {
+  background: var(--clr-dark);
+  padding: var(--sp-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  text-align: center;
+}
+
+.footer-bottom .logo-shop { font-family: var(--ff-display); font-size: 1.4rem; font-weight: 800; color: #fff; }
+.footer-bottom .logo-zone { font-family: var(--ff-display); font-size: 1.4rem; font-weight: 800; color: var(--clr-primary); }
+
+.footer-copy { font-size: 0.78rem; color: #888; }
+
+@media (max-width: 600px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}

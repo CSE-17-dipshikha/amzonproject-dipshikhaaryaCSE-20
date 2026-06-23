@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon – Deals. Delivered.</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/products.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/toast.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-top">
+      <a href="#" class="logo">
+        <span class="logo-shop">Ama</span><span class="logo-zone">zon</span>
+        <span class="logo-prime">prime</span>
+      </a>
+
+      <div class="nav-location">
+        <span class="loc-icon">📍</span>
+        <div>
+          <span class="loc-label">Deliver to</span>
+          <span class="loc-city">India</span>
+        </div>
+      </div>
+
+      <div class="search-bar" id="searchBar">
+        <div class="search-category-wrap">
+          <select id="categoryFilter" class="search-category">
+            <option value="all">All</option>
+            <option value="electronics">Electronics</option>
+            <option value="fashion">Fashion</option>
+            <option value="home">Home</option>
+            <option value="books">Books</option>
+            <option value="sports">Sports</option>
+          </select>
+        </div>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search products, brands and more…" />
+        <button class="search-btn" id="searchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+
+      <nav class="nav-actions">
+        <a href="#" class="nav-action" id="accountBtn">
+          <span class="nav-action-top">Hello, Sign in</span>
+          <span class="nav-action-bot">Account &amp; Lists</span>
+        </a>
+        <a href="#" class="nav-action">
+          <span class="nav-action-top">Returns</span>
+          <span class="nav-action-bot">&amp; Orders</span>
+        </a>
+        <button class="nav-cart-btn" id="cartToggleBtn" aria-label="Cart">
+          <div class="cart-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </div>
+          <span class="nav-action-bot">Cart</span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="nav-bottom">
+      <button class="nav-menu-btn">☰ All</button>
+      <a href="#" class="nav-link active" data-cat="all">Today's Deals</a>
+      <a href="#" class="nav-link" data-cat="electronics">Electronics</a>
+      <a href="#" class="nav-link" data-cat="fashion">Fashion</a>
+      <a href="#" class="nav-link" data-cat="home">Home &amp; Kitchen</a>
+      <a href="#" class="nav-link" data-cat="books">Books</a>
+      <a href="#" class="nav-link" data-cat="sports">Sports</a>
+      <a href="#" class="nav-link prime-link">🎬 Prime Video</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO BANNER ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="--bg: linear-gradient(135deg,#0f2027,#203a43,#2c5364)">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Limited Time</p>
+          <h1 class="hero-heading">Up to 70% off<br/>Electronics</h1>
+          <p class="hero-sub">Laptops, phones, headphones — all on sale</p>
+          <button class="hero-cta" onclick="filterByCategory('electronics')">Shop Now →</button>
+        </div>
+      </div>
+      <div class="hero-slide" style="--bg: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)">
+        <div class="hero-content">
+          <p class="hero-eyebrow">New Season</p>
+          <h1 class="hero-heading">Fresh Fashion<br/>Picks</h1>
+          <p class="hero-sub">Trending styles at unbeatable prices</p>
+          <button class="hero-cta" onclick="filterByCategory('fashion')">Explore →</button>
+        </div>
+      </div>
+      <div class="hero-slide" style="--bg: linear-gradient(135deg,#0d0d0d,#1a1a1a,#2d1b69)">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Prime Deal</p>
+          <h1 class="hero-heading">Home &amp; Kitchen<br/>Essentials</h1>
+          <p class="hero-sub">Everything your home needs, delivered fast</p>
+          <button class="hero-cta" onclick="filterByCategory('home')">See Deals →</button>
+        </div>
+      </div>
+    </div>
+    <button class="hero-arrow hero-prev" id="heroPrev">‹</button>
+    <button class="hero-arrow hero-next" id="heroNext">›</button>
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+
+  <!-- ===== CATEGORY QUICK LINKS ===== -->
+  <section class="cat-strip">
+    <div class="cat-strip-inner">
+      <button class="cat-chip active" data-cat="all">🛍 All</button>
+      <button class="cat-chip" data-cat="electronics">💻 Electronics</button>
+      <button class="cat-chip" data-cat="fashion">👗 Fashion</button>
+      <button class="cat-chip" data-cat="home">🏠 Home</button>
+      <button class="cat-chip" data-cat="books">📚 Books</button>
+      <button class="cat-chip" data-cat="sports">⚽ Sports</button>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+    <!-- Sort & Filter Bar -->
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <span class="results-count" id="resultsCount">Showing 24 products</span>
+      </div>
+      <div class="toolbar-right">
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect" class="sort-select">
+          <option value="default">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Avg. Customer Review</option>
+          <option value="newest">Newest Arrivals</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state hidden" id="emptyState">
+      <div class="empty-icon">🔍</div>
+      <h2>No products found</h2>
+      <p>Try a different search term or category.</p>
+      <button class="empty-reset" onclick="resetFilters()">Clear filters</button>
+    </div>
+  </main>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay hidden" id="cartOverlay"></div>
+  <aside class="cart-sidebar hidden" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Shopping Cart</h2>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <!-- Injected by JS -->
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <!-- Injected by JS -->
+    </div>
+  </aside>
+
+  <!-- ===== PRODUCT MODAL ===== -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="product-modal" id="productModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Get to Know Us</h4>
+        <ul>
+          <li><a href="#">About ShopZone</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Releases</a></li>
+          <li><a href="#">Investor Relations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect with Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Make Money with Us</h4>
+        <ul>
+          <li><a href="#">Sell on ShopZone</a></li>
+          <li><a href="#">Affiliate Program</a></li>
+          <li><a href="#">Advertise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Let Us Help You</h4>
+        <ul>
+          <li><a href="#">Your Account</a></li>
+          <li><a href="#">Returns Centre</a></li>
+          <li><a href="#">100% Purchase Protection</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">
+        <span class="logo-shop">Ama</span><span class="logo-zone">Zon</span>
+      </div>
+      <p class="footer-copy">© 2025 Amazon, Inc. Built with by  deepsikha aarya</p>
+    </div>
+  </footer>
+
+  <!-- JS Modules (load order matters) -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
